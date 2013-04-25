@@ -39,6 +39,7 @@ package body Media.Images.PNG is
          Byte_IO.Read(File, Raw_Size(I));
       end loop;
       -- TODO: Finish Me!
+      return 0;
    end Read_Chunk_Size;
 
 

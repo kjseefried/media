@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------
--- FILE    : do_tests.adb
--- SUBJECT : Top level test fixture for the Media Tools library
+-- FILE    : tests.adb
+-- SUBJECT : Top level test fixture for the Media library
 -- AUTHOR  : (C) Copyright 2010 by Peter C. Chapin
 --
 -- Please send comments or bug reports to
@@ -8,9 +8,9 @@
 --      Peter C. Chapin <PChapin@vtc.vsc.edu>
 ---------------------------------------------------------------------------
 
-with Media_Tools.Images.PNG.Test;
+with Media.Images.PNG.Test;
 
-procedure Do_Tests is
+procedure Tests is
 begin
-   Media_Tools.Images.PNG.Test.Execute_Tests;
-end Do_Tests;
+   Media.Images.PNG.Test.Execute_Tests;
+end Tests;
