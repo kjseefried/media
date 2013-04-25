@@ -1,0 +1,80 @@
+project Media is
+
+   type Os_Type is
+      ("Unix", "Windows_NT");
+   Os : Os_Type := external ("OS", "Unix");
+   for Source_Dirs use (".");
+   type Build_Type is
+      ("Release", "Debug");
+   Build : Build_Type := external ("BUILD");
+
+   case Build is
+
+      when "Release" =>
+
+         case Os is
+
+            when "Unix" =>
+               for Main use ("tests.adb", "main.adb");
+               for Object_Dir use "build/Release";
+
+            when "Windows_NT" =>
+               for Main use ("tests.adb", "main.adb");
+               for Object_Dir use "build\Release";
+         end case;
+
+      when "Debug" =>
+
+         case Os is
+
+            when "Unix" =>
+               for Main use ("tests.adb", "main.adb");
+               for Object_Dir use "build/Debug";
+
+            when "Windows_NT" =>
+               for Main use ("tests.adb", "main.adb");
+               for Object_Dir use "build\Debug";
+         end case;
+   end case;
+
+   package Ide is
+
+      case Os is
+         when "Unix" =>
+            for Default_Switches ("adacontrol") use ("-f", "media.aru", "-F", "gnat_short");
+
+         when "Windows_NT" =>
+            for Default_Switches ("adacontrol") use ("-f", "media.aru", "-F", "gnat_short");
+      end case;
+   end Ide;
+
+   package Compiler is
+
+      case Build is
+
+         when "Release" =>
+
+            case Os is
+
+               when "Unix" =>
+                  for Default_Switches ("ada") use ("-gnato", "-fstack-check", "-gnatwcijmrz", "-O2", "-gnat12");
+
+               when "Windows_NT" =>
+                  for Default_Switches ("ada") use ("-gnato", "-fstack-check", "-gnatwcijmrz", "-O2", "-gnat12");
+            end case;
+
+         when "Debug" =>
+
+            case Os is
+
+               when "Unix" =>
+                  for Default_Switches ("ada") use ("-gnato", "-fstack-check", "-g", "-gnata", "-gnatwcijmrz", "-gnat12");
+
+               when "Windows_NT" =>
+                  for Default_Switches ("ada") use ("-gnato", "-fstack-check", "-g", "-gnata", "-gnatwcijmrz", "-gnat12");
+            end case;
+      end case;
+   end Compiler;
+
+end Media;
+
