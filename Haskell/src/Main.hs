@@ -8,4 +8,5 @@ main :: IO ()
 main = do
     (pngFileName:_) <- getArgs
     contents <- B.readFile pngFileName
-    putStrLn $ "Read the PNG file " ++ pngFileName
+    if verifyPNG contents then putStrLn $ "PNG file " ++ pngFileName ++ " verifies correctly!"
+                          else putStrLn $ "PNG file " ++ pngFileName ++ " INVALID!"

@@ -3,6 +3,11 @@ version:        0.1
 cabal-version:  >=1.2
 build-type:     Simple
 author:         Peter C. Chapin <PChapin@vtc.vsc.edu>
+stability:      Development
+synopsis:       A program for manipulating multimedia files.
+homepage:       https://github.com/pchapin/media
+license:        GPL-3
+copyright:      Peter C. Chapin
 
 executable Media
   hs-source-dirs:  src
