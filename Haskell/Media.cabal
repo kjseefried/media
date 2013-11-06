@@ -1,0 +1,14 @@
+name:           Media
+version:        0.1
+cabal-version:  >=1.2
+build-type:     Simple
+author:         Peter C. Chapin <PChapin@vtc.vsc.edu>
+
+executable Media
+  hs-source-dirs:  src
+  main-is:         Main.hs
+  build-depends:   
+                   base >= 4,
+                   bytestring >=0.9.2 && <0.10
+  ghc-options:     -Wall
+
